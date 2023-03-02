@@ -50,4 +50,4 @@ jobs:
           app-name: 'geonetwork'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0C4838EA402D4EE1950669B9D4DE4F3D }}
-          package: '*.jar'
+          package: 'geonetwork.war'
