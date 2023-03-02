@@ -1188,6 +1188,49 @@
   <!-- ================================================================== -->
   <repositories>
     <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <!-- contains release (including third-party-dependences)               -->
+      <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
+      <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>osgeo-releases</id>
+      <name>OSGeo Nexus Release Repository</name>
+      <url>https://repo.osgeo.org/repository/release/</url>
+    </repository>
+
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <!-- contains snapshots               -->
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>osgeo-snapshots</id>
+      <name>OSGeo Nexus Snapshot Repository</name>
+      <url>https://repo.osgeo.org/repository/snapshot/</url>
+    </repository>
+
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>geosolutions</id>
+      <name>geosolutions repository</name>
+      <url>https://maven.geo-solutions.it/</url>
+    </repository>
+  </repositories>
+
+
+<!-- <repositories>
+    <repository>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
@@ -1223,7 +1266,7 @@
       <id>core-maven-repo</id>
       <name>GeoNetwork remote repository</name>
       <url>https://raw.githubusercontent.com/geonetwork/core-maven-repo/master</url>
-    </repository>
+    </repository> 
 
     <repository>
       <id>mvnrepository.com</id>
@@ -1240,11 +1283,10 @@
       <id>maven2</id>
       <name>Repository maven2</name>
       <url>http://repo.maven.apache.org/maven2</url>
-    </repository>
+    </repository> -->
 
     <!-- seasar repo, has jsonic - used by langdetect -->
-    <repository>
-      <id>maven.seasar.org</id>
+<!--    <repository>      <id>maven.seasar.org</id>
       <name>The Seasar Foundation Maven2 Repository</name>
       <url>http://maven.seasar.org/maven2</url>
     </repository>
@@ -1253,9 +1295,9 @@
       <id>georchestra-mfprint</id>
       <name>build-releases</name>
       <url>https://packages.georchestra.org/artifactory/mapfish-print</url>
-    </repository>
+    </repository> 
 
-  </repositories>
+  </repositories> -->
 
 
   <pluginRepositories>
