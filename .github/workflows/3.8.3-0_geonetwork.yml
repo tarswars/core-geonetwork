@@ -29,9 +29,6 @@ jobs:
         with:
           name: geonetwork
           path: '${{ github.workspace }}/web/target/geonetwork.war'
-          
-      - name: rename to ROOT  
-        run: mv geonetwork.war ROOT.war
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,6 +42,9 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: geonetwork
+          
+      - name: rename to ROOT  
+        run: mv geonetwork.war ROOT.war
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
