@@ -31,7 +31,7 @@ jobs:
           path: '${{ github.workspace }}/web/target/geonetwork.war'
           
       - name: rename to ROOT  
-        run: mv /web/target/geonetwork.war /web/target/ROOT.war
+        run: mv geonetwork.war ROOT.war
 
   deploy:
     runs-on: ubuntu-latest
