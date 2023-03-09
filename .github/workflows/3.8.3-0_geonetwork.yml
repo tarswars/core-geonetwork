@@ -29,6 +29,9 @@ jobs:
         with:
           name: geonetwork
           path: '${{ github.workspace }}/web/target/geonetwork.war'
+          
+      - name: rename to ROOT  
+        run: mv /web/target/geonetwork.war /web/target/ROOT.war
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,4 +53,4 @@ jobs:
           app-name: 'geonetwork'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0C4838EA402D4EE1950669B9D4DE4F3D }}
-          package: 'geonetwork.war'
+          package: 'ROOT.war'
