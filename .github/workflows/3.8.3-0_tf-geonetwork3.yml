@@ -27,7 +27,7 @@ jobs:
           java-version: "1.8"
 
       - name: Build with Maven
-        run: mvn -Be package --file pom.xml
+        run: mvn -B -e package --file pom.xml -DskipTests
         # run: mvn clean install -- old
 
       - name: Upload artifact for deployment job

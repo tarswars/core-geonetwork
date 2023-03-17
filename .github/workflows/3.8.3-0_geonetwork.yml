@@ -19,7 +19,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
-          java-version: '8'
+          java-version: "8"
 
       - name: Build with Maven
         run: mvn clean install -DskipTests
@@ -28,29 +28,29 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: geonetwork
-          path: '${{ github.workspace }}/web/target/geonetwork.war'
+          path: "${{ github.workspace }}/web/target/geonetwork.war"
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: geonetwork
-          
-      - name: rename to ROOT  
+
+      - name: rename to ROOT
         run: mv geonetwork.war ROOT.war
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'geonetwork'
-          slot-name: 'Production'
+          app-name: "geonetwork"
+          slot-name: "Production"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0C4838EA402D4EE1950669B9D4DE4F3D }}
-          package: 'ROOT.war'
+          package: "ROOT.war"
