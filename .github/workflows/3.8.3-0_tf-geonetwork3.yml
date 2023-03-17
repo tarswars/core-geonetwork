@@ -1,12 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-# More info at: https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel
-
 name: Build and deploy WAR app to Azure Web App - tf-geonetwork3
-
-# env:
-#   APP_CONFIGURATION_CONNECTION_STRING: ${{ secrets.APP_CONFIGURATION_CONNECTION_STRING }}
 
 on:
   push:
@@ -24,23 +19,22 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
-          java-version: "1.8"
+          java-version: '8'
 
       - name: Build with Maven
-        run: mvn -B -e package --file pom.xml -DskipTests
-        # run: mvn clean install -- old
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: "${{ github.workspace }}/target/*.war"
+          path: '${{ github.workspace }}/target/*.war'
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: "Production"
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -53,7 +47,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "tf-geonetwork3"
-          slot-name: "Production"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BDF2FC1A0C504CF2BAC9A228CD9822B7 }}
-          package: "/usr/local/tomcat/webapps/*.war"
+          app-name: 'tf-geonetwork3'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5451F835CE5C4D578F65A78344EC6B05 }}
+          package: '*.war'
